@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState, useEffect } from "react";
 import {
   HardHat,
   Ruler,
@@ -11,8 +12,18 @@ import {
   Download,
   Linkedin,
   Github,
+  Menu,
+  X,
 } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+  SheetClose,
+} from "@/components/ui/sheet";
 import heroImage from "../assets/hero-engineering.jpg";
 
 export const Route = createFileRoute("/")({
@@ -160,41 +171,122 @@ const projects = [
   },
 ];
 
+const navLinks = [
+  { label: "About", href: "#about" },
+  { label: "Skills", href: "#skills" },
+  { label: "Projects", href: "#projects" },
+];
+
+function Header() {
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
+    <header className="sticky top-0 z-50 px-4 pt-4 sm:px-6 lg:px-8">
+      <div
+        className={`
+          container-tight mx-auto overflow-hidden rounded-2xl border border-border/60 bg-card/80 shadow-sm backdrop-blur-md transition-all duration-300
+          ${scrolled ? "shadow-lg shadow-navy-900/5" : ""}
+        `}
+      >
+        <nav className="flex items-center justify-between px-5 py-4">
+          {/* Logo */}
+          <a href="#" className="flex items-center gap-2">
+            <div className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
+              <span className="font-heading text-sm font-bold text-primary-foreground">
+                CE
+              </span>
+            </div>
+            <span className="hidden h-4 w-px bg-border sm:block" />
+            <span className="hidden font-sans text-[10px] font-medium uppercase tracking-widest text-muted-foreground sm:inline">
+              Portfolio
+            </span>
+          </a>
+
+          {/* Desktop links */}
+          <div className="hidden items-center gap-1 sm:flex">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+              >
+                {link.label}
+              </a>
+            ))}
+            <a
+              href="#contact"
+              className="ml-3 inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-all hover:bg-primary/90"
+            >
+              Get in touch
+              <ArrowRight className="h-3.5 w-3.5" />
+            </a>
+          </div>
+
+          {/* Mobile menu */}
+          <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
+            <SheetTrigger asChild className="sm:hidden">
+              <button
+                className="inline-flex flex-col items-end gap-1.5 p-2"
+                aria-label="Open menu"
+              >
+                <span className="h-0.5 w-5 rounded-full bg-foreground" />
+                <span className="h-0.5 w-3 rounded-full bg-foreground" />
+              </button>
+            </SheetTrigger>
+            <SheetContent side="top" className="border-b border-border bg-card/95 backdrop-blur-xl">
+              <SheetHeader>
+                <SheetTitle className="sr-only">Navigation menu</SheetTitle>
+              </SheetHeader>
+              <div className="mt-8 flex flex-col gap-2">
+                {navLinks.map((link) => (
+                  <SheetClose asChild key={link.href}>
+                    <a
+                      href={link.href}
+                      className="flex items-center justify-between rounded-xl px-4 py-3 text-lg font-medium text-foreground transition-colors hover:bg-secondary"
+                    >
+                      {link.label}
+                      <ArrowRight className="h-4 w-4 text-muted-foreground" />
+                    </a>
+                  </SheetClose>
+                ))}
+                <SheetClose asChild>
+                  <a
+                    href="#contact"
+                    className="mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground transition-all hover:bg-primary/90"
+                  >
+                    Get in touch
+                    <ArrowRight className="h-4 w-4" />
+                  </a>
+                </SheetClose>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </nav>
+
+        {/* Structural detail bar */}
+        <div className="flex h-1 w-full border-t border-border/40">
+          <div className="h-full w-1/3 bg-primary/10" />
+          <div className="h-full w-px bg-border" />
+          <div className="h-full flex-1" />
+        </div>
+      </div>
+    </header>
+  );
+}
+
 function Index() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       {/* Navigation */}
-      <nav className="container-tight flex items-center justify-between py-6">
-        <span className="font-heading text-xl font-bold tracking-tight text-primary">
-          CE.
-        </span>
-        <div className="flex items-center gap-6">
-          <a
-            href="#about"
-            className="hidden text-sm font-medium text-muted-foreground transition-colors hover:text-foreground sm:inline"
-          >
-            About
-          </a>
-          <a
-            href="#skills"
-            className="hidden text-sm font-medium text-muted-foreground transition-colors hover:text-foreground sm:inline"
-          >
-            Skills
-          </a>
-          <a
-            href="#projects"
-            className="hidden text-sm font-medium text-muted-foreground transition-colors hover:text-foreground sm:inline"
-          >
-            Projects
-          </a>
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-all hover:bg-primary/90"
-          >
-            Get in touch
-          </a>
-        </div>
-      </nav>
+      <Header />
 
       {/* Hero */}
       <section className="container-tight grid items-center gap-12 py-16 lg:grid-cols-2 lg:py-24">

@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState, useEffect } from "react";
 import {
   HardHat,
   Ruler,
@@ -11,8 +12,18 @@ import {
   Download,
   Linkedin,
   Github,
+  Menu,
+  X,
 } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+  SheetClose,
+} from "@/components/ui/sheet";
 import heroImage from "../assets/hero-engineering.jpg";
 
 export const Route = createFileRoute("/")({

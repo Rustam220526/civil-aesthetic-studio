@@ -211,7 +211,7 @@ function Index() {
               width={1920}
               height={1080}
               className="h-full w-full object-cover"
-              priority="true"
+              loading="eager"
             />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-950/30 to-transparent" />
           </div>

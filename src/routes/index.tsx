@@ -217,7 +217,7 @@ function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                className="rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+                className="rounded-full px-4 py-2 text-sm font-bold text-primary transition-colors hover:bg-secondary hover:text-accent"
               >
                 {link.label}
               </a>

@@ -12,6 +12,7 @@ import {
   Linkedin,
   Github,
 } from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import heroImage from "../assets/hero-engineering.jpg";
 
 export const Route = createFileRoute("/")({
@@ -87,6 +88,18 @@ const projects = [
     year: "2024",
     description:
       "A tension-efficient footbridge design optimizing material use and pedestrian flow for an urban corridor.",
+    details: {
+      overview:
+        "This concept explores a cable-stayed footbridge spanning 42 m across a busy urban corridor. The design prioritizes slender deck profiles, clear sightlines, and minimal ground intervention.",
+      approach:
+        "Developed parametric models to iterate deck depth and cable spacing. Performed hand calculations for ultimate and serviceability limit states, then validated with a finite-element model.",
+      outcomes: [
+        "Reduced estimated steel tonnage by 18% versus the initial truss scheme",
+        "Maintained a vertical frequency above 5 Hz for pedestrian comfort",
+        "Produced construction-stage drawings and a cost estimate",
+      ],
+      tools: ["SAP2000", "AutoCAD", "Excel", "Grasshopper"],
+    },
   },
   {
     title: "Seismic Retrofit Study",
@@ -94,6 +107,18 @@ const projects = [
     year: "2023",
     description:
       "Assessment and strengthening strategy for a mid-rise reinforced concrete building in a high-risk zone.",
+    details: {
+      overview:
+        "A condition assessment and retrofit proposal for a 7-story RC frame built in the 1980s, located in a high seismicity region with soft soil conditions.",
+      approach:
+        "Reviewed existing drawings, conducted a vulnerability walkthrough, and modeled the building in ETABS. Evaluated jacketing, shear-wall addition, and base-isolation options.",
+      outcomes: [
+        "Identified weak-column-strong-beam mechanisms at three levels",
+        "Proposed a concrete jacketing scheme improving ductility by 35%",
+        "Estimated retrofit cost within 12% of typical regional benchmarks",
+      ],
+      tools: ["ETABS", "AutoCAD", "Python", "Excel"],
+    },
   },
   {
     title: "Stormwater Management Plan",
@@ -101,6 +126,18 @@ const projects = [
     year: "2023",
     description:
       "Sustainable drainage design reducing runoff and improving water quality for a mixed-use development.",
+    details: {
+      overview:
+        "A site-wide drainage strategy for a 4-hectare mixed-use development, integrating green infrastructure with conventional conveyance.",
+      approach:
+        "Analyzed rainfall intensity-duration-frequency curves, delineated catchments, and sized bioswales, permeable paving, and detention basins using the curve-number method.",
+      outcomes: [
+        "Reduced peak runoff by 40% compared to pre-development conditions",
+        "Improved water-quality capture for 90% of annual rainfall events",
+        "Created maintenance schedules and inspection checklists",
+      ],
+      tools: ["HEC-HMS", "AutoCAD Civil 3D", "EPA SWMM", "Excel"],
+    },
   },
   {
     title: "Low-Carbon Housing Model",
@@ -108,6 +145,18 @@ const projects = [
     year: "2022",
     description:
       "A prototype residential unit minimizing embodied carbon through material selection and passive design.",
+    details: {
+      overview:
+        "A single-family:house prototype designed to minimize embodied carbon while meeting thermal comfort targets without mechanical cooling.",
+      approach:
+        "Compared timber, straw-insulated, and conventional masonry assemblies using whole-life carbon factors. Ran dynamic thermal simulations to optimize orientation, glazing ratio, and shading.",
+      outcomes: [
+        "Achieved 45% lower embodied carbon than a comparable masonry unit",
+        "Predicted overheating hours below 5% without air conditioning",
+        "Developed a bill of quantities and procurement recommendations",
+      ],
+      tools: ["DesignBuilder", "One Click LCA", "AutoCAD", "Excel"],
+    },
   },
 ];
 
@@ -321,15 +370,45 @@ function Index() {
                 <h3 className="mt-5 font-heading text-xl font-bold text-foreground">
                   {project.title}
                 </h3>
-                <p className="mt-3 flex-grow text-sm leading-relaxed text-muted-foreground">
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                   {project.description}
                 </p>
-                <a
-                  href="#contact"
-                  className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-accent transition-colors hover:text-accent/80"
-                >
-                  Read more <ArrowRight className="h-4 w-4" />
-                </a>
+                <Tabs defaultValue="overview" className="mt-5 flex-grow">
+                  <TabsList className="grid w-full grid-cols-4 bg-secondary">
+                    <TabsTrigger value="overview">Overview</TabsTrigger>
+                    <TabsTrigger value="approach">Approach</TabsTrigger>
+                    <TabsTrigger value="outcomes">Outcomes</TabsTrigger>
+                    <TabsTrigger value="tools">Tools</TabsTrigger>
+                  </TabsList>
+                  <TabsContent value="overview" className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                    {project.details.overview}
+                  </TabsContent>
+                  <TabsContent value="approach" className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                    {project.details.approach}
+                  </TabsContent>
+                  <TabsContent value="outcomes" className="mt-4">
+                    <ul className="space-y-2 text-sm leading-relaxed text-muted-foreground">
+                      {project.details.outcomes.map((outcome, idx) => (
+                        <li key={idx} className="flex items-start gap-2">
+                          <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
+                          <span>{outcome}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </TabsContent>
+                  <TabsContent value="tools" className="mt-4">
+                    <div className="flex flex-wrap gap-2">
+                      {project.details.tools.map((tool) => (
+                        <span
+                          key={tool}
+                          className="rounded-full border border-border bg-background px-3 py-1 text-xs font-medium text-foreground"
+                        >
+                          {tool}
+                        </span>
+                      ))}
+                    </div>
+                  </TabsContent>
+                </Tabs>
               </article>
             ))}
           </div>

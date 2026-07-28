@@ -25,6 +25,7 @@ import {
   SheetClose,
 } from "@/components/ui/sheet";
 import heroImage from "../assets/hero-engineering.jpg";
+import multistoreyBuilding from "../assets/multistorey-building.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({

@@ -175,37 +175,7 @@ function Index() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       {/* Navigation */}
-      <nav className="container-tight flex items-center justify-between py-6">
-        <span className="font-heading text-xl font-bold tracking-tight text-primary">
-          CE.
-        </span>
-        <div className="flex items-center gap-6">
-          <a
-            href="#about"
-            className="hidden text-sm font-medium text-muted-foreground transition-colors hover:text-foreground sm:inline"
-          >
-            About
-          </a>
-          <a
-            href="#skills"
-            className="hidden text-sm font-medium text-muted-foreground transition-colors hover:text-foreground sm:inline"
-          >
-            Skills
-          </a>
-          <a
-            href="#projects"
-            className="hidden text-sm font-medium text-muted-foreground transition-colors hover:text-foreground sm:inline"
-          >
-            Projects
-          </a>
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-all hover:bg-primary/90"
-          >
-            Get in touch
-          </a>
-        </div>
-      </nav>
+      <Header />
 
       {/* Hero */}
       <section className="container-tight grid items-center gap-12 py-16 lg:grid-cols-2 lg:py-24">

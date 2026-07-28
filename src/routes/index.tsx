@@ -192,7 +192,7 @@ function Header() {
     <header className="sticky top-0 z-50 px-4 pt-4 sm:px-6 lg:px-8">
       <div
         className={`
-          container-tight mx-auto overflow-hidden rounded-2xl border border-border/60 bg-card/80 shadow-sm backdrop-blur-md transition-all duration-300
+          container-tight relative mx-auto overflow-hidden rounded-2xl border border-border/60 bg-card/80 shadow-sm backdrop-blur-md transition-all duration-300
           ${scrolled ? "shadow-lg shadow-navy-900/5" : ""}
         `}
       >
@@ -223,10 +223,10 @@ function Header() {
             ))}
             <a
               href="#contact"
-              className="ml-3 inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-all hover:bg-primary/90"
+              className="group ml-3 inline-flex items-center gap-1.5 rounded-full border border-primary/10 bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20"
             >
               Get in touch
-              <ArrowRight className="h-3.5 w-3.5" />
+              <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
             </a>
           </div>
 
@@ -234,11 +234,11 @@ function Header() {
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
             <SheetTrigger asChild className="sm:hidden">
               <button
-                className="inline-flex flex-col items-end gap-1.5 p-2"
+                className="group flex h-10 w-10 flex-col items-end justify-center gap-1.5 rounded-xl border border-border/60 bg-secondary/60 transition-colors hover:bg-secondary"
                 aria-label="Open menu"
               >
-                <span className="h-0.5 w-5 rounded-full bg-foreground" />
-                <span className="h-0.5 w-3 rounded-full bg-foreground" />
+                <span className="h-0.5 w-5 rounded-full bg-foreground transition-all group-hover:w-6" />
+                <span className="h-0.5 w-3 rounded-full bg-accent transition-all group-hover:w-6" />
               </button>
             </SheetTrigger>
             <SheetContent side="top" className="border-b border-border bg-card/95 backdrop-blur-xl">
@@ -277,6 +277,12 @@ function Header() {
           <div className="h-full w-px bg-border" />
           <div className="h-full flex-1" />
         </div>
+
+        {/* Subtle bottom glow */}
+        <div
+          className="pointer-events-none absolute -bottom-5 left-1/2 h-5 w-1/2 -translate-x-1/2 rounded-full blur-2xl"
+          style={{ background: "oklch(0.55 0.075 240 / 0.12)" }}
+        />
       </div>
     </header>
   );

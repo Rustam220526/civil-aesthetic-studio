@@ -12,9 +12,8 @@ import {
   Download,
   Linkedin,
   Github,
-  Menu,
-  X,
 } from "lucide-react";
+import { cn } from "@/lib/utils";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Sheet,
@@ -190,7 +189,7 @@ function Header() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 px-4 pt-4 sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-[60] px-4 pt-4 sm:px-6 lg:px-8">
       <div
         className={`
           container-tight relative mx-auto overflow-hidden rounded-2xl border border-border/60 bg-card/80 shadow-sm backdrop-blur-md transition-all duration-300
@@ -235,14 +234,33 @@ function Header() {
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
             <SheetTrigger asChild className="sm:hidden">
               <button
-                className="group flex h-10 w-10 flex-col items-end justify-center gap-1.5 rounded-xl border border-border/60 bg-secondary/60 transition-colors hover:bg-secondary"
-                aria-label="Open menu"
+                className="group relative flex h-10 w-10 items-center justify-center rounded-xl border border-border/60 bg-secondary/60 transition-colors hover:bg-secondary"
+                aria-label={mobileOpen ? "Close menu" : "Open menu"}
+                aria-expanded={mobileOpen}
               >
-                <span className="h-0.5 w-5 rounded-full bg-foreground transition-all group-hover:w-6" />
-                <span className="h-0.5 w-3 rounded-full bg-accent transition-all group-hover:w-6" />
+                <span
+                  className={cn(
+                    "absolute h-0.5 w-5 rounded-full bg-foreground transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                    mobileOpen
+                      ? "translate-y-0 rotate-45"
+                      : "-translate-y-1"
+                  )}
+                />
+                <span
+                  className={cn(
+                    "absolute h-0.5 rounded-full bg-accent transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                    mobileOpen
+                      ? "w-5 translate-y-0 -rotate-45"
+                      : "w-3 translate-y-1"
+                  )}
+                />
               </button>
             </SheetTrigger>
-            <SheetContent side="top" className="border-b border-border bg-card/95 backdrop-blur-xl">
+            <SheetContent
+              side="top"
+              closeButton={false}
+              className="menu-offset rounded-t-2xl border-b border-border bg-card/95 backdrop-blur-xl"
+            >
               <SheetHeader>
                 <SheetTitle className="sr-only">Navigation menu</SheetTitle>
               </SheetHeader>

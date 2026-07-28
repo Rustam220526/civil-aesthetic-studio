@@ -370,15 +370,45 @@ function Index() {
                 <h3 className="mt-5 font-heading text-xl font-bold text-foreground">
                   {project.title}
                 </h3>
-                <p className="mt-3 flex-grow text-sm leading-relaxed text-muted-foreground">
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                   {project.description}
                 </p>
-                <a
-                  href="#contact"
-                  className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-accent transition-colors hover:text-accent/80"
-                >
-                  Read more <ArrowRight className="h-4 w-4" />
-                </a>
+                <Tabs defaultValue="overview" className="mt-5 flex-grow">
+                  <TabsList className="grid w-full grid-cols-4 bg-secondary">
+                    <TabsTrigger value="overview">Overview</TabsTrigger>
+                    <TabsTrigger value="approach">Approach</TabsTrigger>
+                    <TabsTrigger value="outcomes">Outcomes</TabsTrigger>
+                    <TabsTrigger value="tools">Tools</TabsTrigger>
+                  </TabsList>
+                  <TabsContent value="overview" className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                    {project.details.overview}
+                  </TabsContent>
+                  <TabsContent value="approach" className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                    {project.details.approach}
+                  </TabsContent>
+                  <TabsContent value="outcomes" className="mt-4">
+                    <ul className="space-y-2 text-sm leading-relaxed text-muted-foreground">
+                      {project.details.outcomes.map((outcome, idx) => (
+                        <li key={idx} className="flex items-start gap-2">
+                          <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
+                          <span>{outcome}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </TabsContent>
+                  <TabsContent value="tools" className="mt-4">
+                    <div className="flex flex-wrap gap-2">
+                      {project.details.tools.map((tool) => (
+                        <span
+                          key={tool}
+                          className="rounded-full border border-border bg-background px-3 py-1 text-xs font-medium text-foreground"
+                        >
+                          {tool}
+                        </span>
+                      ))}
+                    </div>
+                  </TabsContent>
+                </Tabs>
               </article>
             ))}
           </div>

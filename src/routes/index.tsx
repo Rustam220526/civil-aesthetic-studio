@@ -12,6 +12,7 @@ import {
   Linkedin,
   Github,
 } from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import heroImage from "../assets/hero-engineering.jpg";
 
 export const Route = createFileRoute("/")({

@@ -25,6 +25,7 @@ import {
   SheetClose,
 } from "@/components/ui/sheet";
 import heroImage from "../assets/hero-engineering.jpg";
+import multistoreyBuilding from "../assets/multistorey-building.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -216,7 +217,7 @@ function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                className="rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+                className="rounded-full px-4 py-2 text-sm font-bold text-primary transition-colors hover:bg-secondary hover:text-accent"
               >
                 {link.label}
               </a>
@@ -250,7 +251,7 @@ function Header() {
                   <SheetClose asChild key={link.href}>
                     <a
                       href={link.href}
-                      className="flex items-center justify-between rounded-xl px-4 py-3 text-lg font-medium text-foreground transition-colors hover:bg-secondary"
+                      className="flex items-center justify-between rounded-xl px-4 py-3 text-lg font-bold text-primary transition-colors hover:bg-secondary hover:text-accent"
                     >
                       {link.label}
                       <ArrowRight className="h-4 w-4 text-muted-foreground" />
@@ -397,6 +398,31 @@ function Index() {
                 <p className="mt-1 text-sm text-muted-foreground">Published paper</p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Structure */}
+      <section className="container-tight py-12 lg:py-20">
+        <div className="relative mx-auto max-w-5xl overflow-hidden rounded-3xl border border-border bg-card shadow-2xl shadow-navy-900/10">
+          <div className="aspect-[16/9] w-full">
+            <img
+              src={multistoreyBuilding}
+              alt="Modern multistorey building with glass and concrete facade"
+              width={1536}
+              height={1024}
+              className="h-full w-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-950/40 via-transparent to-transparent" />
+          <div className="absolute bottom-0 left-0 w-full p-6 sm:p-10">
+            <p className="text-xs font-semibold uppercase tracking-widest text-primary-foreground/70">
+              Featured Structure
+            </p>
+            <h3 className="mt-2 font-heading text-2xl font-bold text-primary-foreground sm:text-3xl">
+              Multistorey Design Excellence
+            </h3>
           </div>
         </div>
       </section>

@@ -32,6 +32,11 @@
   --font-sans: "IBM Plex Sans", sans-serif;
   --font-serif: "Libre Baskerville", serif;
 
+  --animate-menu-enter: menu-enter 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-menu-exit: menu-exit 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-overlay-enter: overlay-enter 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-overlay-exit: overlay-exit 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -197,4 +202,48 @@
   max-width: 72rem;
   margin-inline: auto;
   padding-inline: calc(var(--spacing) * 6);
+}
+
+@keyframes menu-enter {
+  0% {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes menu-exit {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes overlay-enter {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes overlay-exit {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@utility menu-offset {
+  top: 84px !important;
 }

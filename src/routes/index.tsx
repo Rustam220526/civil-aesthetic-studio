@@ -402,6 +402,31 @@ function Index() {
         </div>
       </section>
 
+      {/* Featured Structure */}
+      <section className="container-tight py-12 lg:py-20">
+        <div className="relative mx-auto max-w-5xl overflow-hidden rounded-3xl border border-border bg-card shadow-2xl shadow-navy-900/10">
+          <div className="aspect-[16/9] w-full">
+            <img
+              src={multistoreyBuilding}
+              alt="Modern multistorey building with glass and concrete facade"
+              width={1536}
+              height={1024}
+              className="h-full w-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-950/40 via-transparent to-transparent" />
+          <div className="absolute bottom-0 left-0 w-full p-6 sm:p-10">
+            <p className="text-xs font-semibold uppercase tracking-widest text-primary-foreground/70">
+              Featured Structure
+            </p>
+            <h3 className="mt-2 font-heading text-2xl font-bold text-primary-foreground sm:text-3xl">
+              Multistorey Design Excellence
+            </h3>
+          </div>
+        </div>
+      </section>
+
       {/* Skills */}
       <section id="skills" className="container-tight py-20 lg:py-28">
         <div className="mx-auto max-w-2xl text-center">

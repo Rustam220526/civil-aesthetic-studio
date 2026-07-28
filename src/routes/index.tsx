@@ -251,7 +251,7 @@ function Header() {
                   <SheetClose asChild key={link.href}>
                     <a
                       href={link.href}
-                      className="flex items-center justify-between rounded-xl px-4 py-3 text-lg font-medium text-foreground transition-colors hover:bg-secondary"
+                      className="flex items-center justify-between rounded-xl px-4 py-3 text-lg font-bold text-primary transition-colors hover:bg-secondary hover:text-accent"
                     >
                       {link.label}
                       <ArrowRight className="h-4 w-4 text-muted-foreground" />

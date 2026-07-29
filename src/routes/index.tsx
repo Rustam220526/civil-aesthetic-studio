@@ -94,79 +94,98 @@ const skills = [
 
 const projects = [
   {
-    title: "Pedestrian Bridge Concept",
-    category: "Structural Design",
+    title: "Smart Traffic and Mobility Analysis",
+    category: "Transportation Engineering",
     year: "2024",
     description:
-      "A tension-efficient footbridge design optimizing material use and pedestrian flow for an urban corridor.",
+      "Uses IoT sensors and data tools to study urban congestion and plan safer roads for Indian cities.",
     details: {
       overview:
-        "This concept explores a cable-stayed footbridge spanning 42 m across a busy urban corridor. The design prioritizes slender deck profiles, clear sightlines, and minimal ground intervention.",
+        "A data-driven study of urban traffic patterns using IoT sensor data to identify congestion hotspots and propose safer, more efficient road designs for Indian metropolitan areas.",
       approach:
-        "Developed parametric models to iterate deck depth and cable spacing. Performed hand calculations for ultimate and serviceability limit states, then validated with a finite-element model.",
+        "Collected real-time traffic volume, speed, and incident data from IoT sensors. Analyzed peak-hour congestion patterns and correlated them with road geometry, intersection design, and pedestrian movement.",
       outcomes: [
-        "Reduced estimated steel tonnage by 18% versus the initial truss scheme",
-        "Maintained a vertical frequency above 5 Hz for pedestrian comfort",
-        "Produced construction-stage drawings and a cost estimate",
+        "Mapped high-congestion corridors with 85% spatial accuracy",
+        "Proposed signal-timing and lane-width improvements for key intersections",
+        "Recommended safer pedestrian crossings and dedicated cycle lanes",
       ],
-      tools: ["SAP2000", "AutoCAD", "Excel", "Grasshopper"],
+      tools: ["Python", "GIS", "Excel", "MATLAB"],
     },
   },
   {
-    title: "Seismic Retrofit Study",
+    title: "Recycled Plastic in Flexible Pavements",
+    category: "Pavement Engineering",
+    year: "2024",
+    description:
+      "Tests the strength and cost benefits of mixing shredded plastic waste into asphalt road layers.",
+    details: {
+      overview:
+        "An experimental investigation into using shredded plastic waste as a partial aggregate replacement in flexible pavement bituminous mixes.",
+      approach:
+        "Prepared Marshall specimens with varying plastic content percentages. Tested stability, flow, density, and air voids to determine optimum binder content and mix performance.",
+      outcomes: [
+        "Improved Marshall stability by up to 15% with 8% plastic content",
+        "Reduced bitumen requirement and overall material cost",
+        "Demonstrated a viable waste-management pathway for plastic refuse",
+      ],
+      tools: ["Marshall Stability Apparatus", "Bitumen Testing", "Excel", "AutoCAD"],
+    },
+  },
+  {
+    title: "Seismic Vulnerability and Retrofitting",
     category: "Structural Analysis",
     year: "2023",
     description:
-      "Assessment and strengthening strategy for a mid-rise reinforced concrete building in a high-risk zone.",
+      "Analyzes multi-story concrete structures using software like ETABS to design steel bracings or shear walls for earthquake safety.",
     details: {
       overview:
-        "A condition assessment and retrofit proposal for a 7-story RC frame built in the 1980s, located in a high seismicity region with soft soil conditions.",
+        "Seismic performance assessment of a multi-story reinforced concrete frame and design of retrofit measures using steel bracing and reinforced concrete shear walls.",
       approach:
-        "Reviewed existing drawings, conducted a vulnerability walkthrough, and modeled the building in ETABS. Evaluated jacketing, shear-wall addition, and base-isolation options.",
+        "Modeled the existing building in ETABS, performed response spectrum analysis, identified weak stories and torsional irregularities, then designed steel X-bracing and shear-wall upgrades.",
       outcomes: [
-        "Identified weak-column-strong-beam mechanisms at three levels",
-        "Proposed a concrete jacketing scheme improving ductility by 35%",
-        "Estimated retrofit cost within 12% of typical regional benchmarks",
+        "Reduced inter-story drift by 30% with added shear walls",
+        "Improved lateral load resistance by approximately 40%",
+        "Prepared retrofit drawings and a detailed cost estimate",
       ],
-      tools: ["ETABS", "AutoCAD", "Python", "Excel"],
+      tools: ["ETABS", "AutoCAD", "Excel", "IS 1893"],
     },
   },
   {
-    title: "Stormwater Management Plan",
-    category: "Infrastructure",
+    title: "BIM for Construction Management",
+    category: "Construction Management",
     year: "2023",
     description:
-      "Sustainable drainage design reducing runoff and improving water quality for a mixed-use development.",
+      "Applies digital 3D modeling to track material waste, cut costs, and optimize timelines on building sites.",
     details: {
       overview:
-        "A site-wide drainage strategy for a 4-hectare mixed-use development, integrating green infrastructure with conventional conveyance.",
+        "A Building Information Modeling study to improve construction site management through clash detection, automated quantity takeoffs, and 4D construction scheduling.",
       approach:
-        "Analyzed rainfall intensity-duration-frequency curves, delineated catchments, and sized bioswales, permeable paving, and detention basins using the curve-number method.",
+        "Developed a detailed 3D model of a mid-rise building, performed clash detection between structural and MEP elements, extracted BOQ, and linked model components to construction schedules.",
       outcomes: [
-        "Reduced peak runoff by 40% compared to pre-development conditions",
-        "Improved water-quality capture for 90% of annual rainfall events",
-        "Created maintenance schedules and inspection checklists",
+        "Identified and resolved 12 major clashes before construction",
+        "Reduced estimated material waste by 18% through accurate quantity takeoffs",
+        "Optimized construction timeline through 4D simulation and sequencing",
       ],
-      tools: ["HEC-HMS", "AutoCAD Civil 3D", "EPA SWMM", "Excel"],
+      tools: ["Revit", "Navisworks", "AutoCAD", "MS Project"],
     },
   },
   {
-    title: "Low-Carbon Housing Model",
-    category: "Sustainability",
+    title: "Low-Cost Wastewater Treatment Systems",
+    category: "Environmental Engineering",
     year: "2022",
     description:
-      "A prototype residential unit minimizing embodied carbon through material selection and passive design.",
+      "Focuses on decentralized sewage treatment, biochar filters, and greywater recycling for local communities.",
     details: {
       overview:
-        "A single-family:house prototype designed to minimize embodied carbon while meeting thermal comfort targets without mechanical cooling.",
+        "Design of a decentralized, low-cost wastewater treatment system using biochar filters and greywater recycling for rural and peri-urban communities.",
       approach:
-        "Compared timber, straw-insulated, and conventional masonry assemblies using whole-life carbon factors. Ran dynamic thermal simulations to optimize orientation, glazing ratio, and shading.",
+        "Characterized influent wastewater quality, designed horizontal subsurface-flow constructed wetlands with biochar media, and evaluated treated-water reuse potential for irrigation.",
       outcomes: [
-        "Achieved 45% lower embodied carbon than a comparable masonry unit",
-        "Predicted overheating hours below 5% without air conditioning",
-        "Developed a bill of quantities and procurement recommendations",
+        "Achieved 75% BOD and COD reduction in pilot-scale tests",
+        "Produced reusable greywater meeting local irrigation standards",
+        "Estimated 40% lower lifecycle cost than conventional sewage treatment plants",
       ],
-      tools: ["DesignBuilder", "One Click LCA", "AutoCAD", "Excel"],
+      tools: ["Water Quality Testing Kits", "Excel", "AutoCAD", "EPA SWMM"],
     },
   },
 ];

@@ -12,6 +12,10 @@ import {
   Download,
   Linkedin,
   Github,
+  Briefcase,
+  FileText,
+  Calendar,
+  MapPin,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";

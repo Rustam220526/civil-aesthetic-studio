@@ -503,7 +503,7 @@ function Index() {
           <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
             <div>
               <p className="text-sm font-semibold uppercase tracking-widest text-accent">
-                Selected Work
+                Academic Projects
               </p>
               <h2 className="mt-3 font-heading text-3xl font-bold text-foreground sm:text-4xl">
                 Projects that shaped me.

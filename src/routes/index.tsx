@@ -193,7 +193,9 @@ const projects = [
 const navLinks = [
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
+  { label: "Experience", href: "#internships" },
   { label: "Projects", href: "#projects" },
+  { label: "Publications", href: "#publications" },
 ];
 
 function Header() {

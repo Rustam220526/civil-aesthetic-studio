@@ -424,18 +424,27 @@ function Index() {
               Whether modeling forces in a high-rise or optimizing drainage for a new development, I approach every problem with curiosity, rigor, and a commitment to public safety. I am now seeking opportunities to contribute to projects that leave a lasting positive impact.
             </p>
             <div className="mt-8 grid gap-6 sm:grid-cols-3">
-              <div className="rounded-xl border border-border bg-background p-5">
-                <p className="font-heading text-3xl font-bold text-primary">5+</p>
+              <a
+                href="#projects"
+                className="group rounded-xl border border-border bg-background p-5 transition-all hover:border-accent/30 hover:bg-accent/5 hover:shadow-lg hover:shadow-navy-900/5"
+              >
+                <p className="font-heading text-3xl font-bold text-primary transition-colors group-hover:text-accent">5+</p>
                 <p className="mt-1 text-sm text-muted-foreground">Academic projects</p>
-              </div>
-              <div className="rounded-xl border border-border bg-background p-5">
-                <p className="font-heading text-3xl font-bold text-primary">2</p>
+              </a>
+              <a
+                href="#internships"
+                className="group rounded-xl border border-border bg-background p-5 transition-all hover:border-accent/30 hover:bg-accent/5 hover:shadow-lg hover:shadow-navy-900/5"
+              >
+                <p className="font-heading text-3xl font-bold text-primary transition-colors group-hover:text-accent">2</p>
                 <p className="mt-1 text-sm text-muted-foreground">Internships</p>
-              </div>
-              <div className="rounded-xl border border-border bg-background p-5">
-                <p className="font-heading text-3xl font-bold text-primary">1</p>
+              </a>
+              <a
+                href="#publications"
+                className="group rounded-xl border border-border bg-background p-5 transition-all hover:border-accent/30 hover:bg-accent/5 hover:shadow-lg hover:shadow-navy-900/5"
+              >
+                <p className="font-heading text-3xl font-bold text-primary transition-colors group-hover:text-accent">1</p>
                 <p className="mt-1 text-sm text-muted-foreground">Published paper</p>
-              </div>
+              </a>
             </div>
           </div>
         </div>

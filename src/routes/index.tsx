@@ -512,6 +512,71 @@ function Index() {
         </div>
       </section>
 
+      {/* Internships */}
+      <section id="internships" className="container-tight py-20 lg:py-28">
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="text-sm font-semibold uppercase tracking-widest text-accent">
+            Experience
+          </p>
+          <h2 className="mt-3 font-heading text-3xl font-bold text-foreground sm:text-4xl">
+            Internships that grounded me.
+          </h2>
+          <p className="mt-4 text-muted-foreground">
+            Hands-on exposure to design offices and construction sites.
+          </p>
+        </div>
+        <div className="mt-14 grid gap-6 md:grid-cols-2">
+          <article className="rounded-2xl border border-border bg-card p-6 transition-all hover:border-accent/30 hover:shadow-lg hover:shadow-navy-900/5 sm:p-8">
+            <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-secondary text-accent">
+              <Briefcase className="h-5 w-5" />
+            </div>
+            <h3 className="mt-5 font-heading text-lg font-bold text-foreground">
+              Structural Design Intern
+            </h3>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Engineering Consultancy Firm
+            </p>
+            <div className="mt-3 flex flex-wrap items-center gap-4 text-xs text-muted-foreground">
+              <span className="inline-flex items-center gap-1">
+                <Calendar className="h-3.5 w-3.5" />
+                Summer 2023
+              </span>
+              <span className="inline-flex items-center gap-1">
+                <MapPin className="h-3.5 w-3.5" />
+                On-site / Remote
+              </span>
+            </div>
+            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+              Assisted senior engineers in load calculations, structural modeling, and preparation of working drawings for residential and commercial projects using ETABS and AutoCAD.
+            </p>
+          </article>
+          <article className="rounded-2xl border border-border bg-card p-6 transition-all hover:border-accent/30 hover:shadow-lg hover:shadow-navy-900/5 sm:p-8">
+            <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-secondary text-accent">
+              <HardHat className="h-5 w-5" />
+            </div>
+            <h3 className="mt-5 font-heading text-lg font-bold text-foreground">
+              Site Engineering Intern
+            </h3>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Construction & Infrastructure Company
+            </p>
+            <div className="mt-3 flex flex-wrap items-center gap-4 text-xs text-muted-foreground">
+              <span className="inline-flex items-center gap-1">
+                <Calendar className="h-3.5 w-3.5" />
+                Winter 2023
+              </span>
+              <span className="inline-flex items-center gap-1">
+                <MapPin className="h-3.5 w-3.5" />
+                Site-based
+              </span>
+            </div>
+            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+              Shadowed site supervisors during foundation and superstructure works, coordinated with subcontractors, and maintained daily quality and safety inspection logs.
+            </p>
+          </article>
+        </div>
+      </section>
+
       {/* Projects */}
       <section id="projects" className="bg-secondary/50 py-20 lg:py-28">
         <div className="container-tight">

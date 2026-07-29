@@ -656,6 +656,49 @@ function Index() {
         </div>
       </section>
 
+      {/* Publications */}
+      <section id="publications" className="bg-card py-20 lg:py-28">
+        <div className="container-tight">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="text-sm font-semibold uppercase tracking-widest text-accent">
+              Publications
+            </p>
+            <h2 className="mt-3 font-heading text-3xl font-bold text-foreground sm:text-4xl">
+              Research output.
+            </h2>
+            <p className="mt-4 text-muted-foreground">
+              A published contribution to sustainable civil engineering.
+            </p>
+          </div>
+          <div className="mt-14 max-w-3xl mx-auto">
+            <article className="rounded-2xl border border-border bg-background p-6 transition-all hover:border-accent/30 hover:shadow-lg hover:shadow-navy-900/5 sm:p-8">
+              <div className="flex items-start gap-4">
+                <div className="inline-flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-secondary text-accent">
+                  <FileText className="h-5 w-5" />
+                </div>
+                <div>
+                  <h3 className="font-heading text-lg font-bold text-foreground sm:text-xl">
+                    Recycled Plastic in Flexible Pavements: Strength and Cost Implications
+                  </h3>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    Co-authored research paper exploring the use of shredded plastic waste as a partial aggregate replacement in bituminous mixes, evaluating Marshall stability, flow, and economic viability.
+                  </p>
+                  <div className="mt-4 flex flex-wrap items-center gap-4 text-xs text-muted-foreground">
+                    <span className="inline-flex items-center gap-1">
+                      <Calendar className="h-3.5 w-3.5" />
+                      2024
+                    </span>
+                    <span className="rounded-full border border-border bg-secondary px-2.5 py-0.5 font-medium text-secondary-foreground">
+                      Sustainable Materials
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
       {/* Contact */}
       <section id="contact" className="container-tight py-20 lg:py-28">
         <div className="relative overflow-hidden rounded-3xl bg-primary px-6 py-16 text-center sm:px-12 lg:py-24">

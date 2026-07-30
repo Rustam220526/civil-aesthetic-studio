@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
 import {
   HardHat,
@@ -742,6 +742,12 @@ function Index() {
             © {new Date().getFullYear()} Civil Engineering Graduate. All rights reserved.
           </p>
           <div className="flex items-center gap-5 text-muted-foreground">
+            <Link
+              to="/dashboard"
+              className="text-sm font-medium transition-colors hover:text-foreground"
+            >
+              Dashboard
+            </Link>
             <a
               href="https://linkedin.com"
               target="_blank"

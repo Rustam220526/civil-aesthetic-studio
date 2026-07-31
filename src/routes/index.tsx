@@ -327,9 +327,18 @@ function Header() {
                   </Link>
                 </SheetClose>
                 <SheetClose asChild>
+                  <Link
+                    to="/auth"
+                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground transition-all hover:bg-primary/90"
+                  >
+                    <UserPlus className="h-4 w-4" />
+                    Sign up
+                  </Link>
+                </SheetClose>
+                <SheetClose asChild>
                   <a
                     href="#contact"
-                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground transition-all hover:bg-primary/90"
+                    className="inline-flex items-center justify-center gap-2 rounded-xl border border-primary/10 bg-card px-4 py-3 text-sm font-semibold text-primary transition-all hover:bg-secondary"
                   >
                     Get in touch
                     <ArrowRight className="h-4 w-4" />

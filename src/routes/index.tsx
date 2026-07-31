@@ -255,6 +255,13 @@ function Header() {
               <LogIn className="h-3.5 w-3.5" />
               Log in
             </Link>
+            <Link
+              to="/auth"
+              className="group ml-2 inline-flex items-center gap-1.5 rounded-full border border-primary/10 bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20"
+            >
+              <UserPlus className="h-3.5 w-3.5" />
+              Sign up
+            </Link>
             <a
               href="#contact"
               className="group ml-2 inline-flex items-center gap-1.5 rounded-full border border-primary/10 bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20"

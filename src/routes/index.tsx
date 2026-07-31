@@ -247,9 +247,16 @@ function Header() {
                 {link.label}
               </a>
             ))}
+            <Link
+              to="/auth"
+              className="group ml-3 inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-card px-4 py-2.5 text-sm font-semibold text-primary shadow-sm transition-all hover:border-primary/40 hover:bg-secondary hover:text-accent"
+            >
+              <LogIn className="h-3.5 w-3.5" />
+              Log in
+            </Link>
             <a
               href="#contact"
-              className="group ml-3 inline-flex items-center gap-1.5 rounded-full border border-primary/10 bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20"
+              className="group ml-2 inline-flex items-center gap-1.5 rounded-full border border-primary/10 bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20"
             >
               Get in touch
               <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />

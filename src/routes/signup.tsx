@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, CheckCircle2, UserPlus } from "lucide-react";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/signup")({
   head: () => ({
@@ -74,17 +75,21 @@ const fields = [
 ] as const;
 
 function SignUpPage() {
+  const navigate = useNavigate();
   const [values, setValues] = useState<FormValues>(initialValues);
   const [errors, setErrors] = useState<FormErrors>({});
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [formError, setFormError] = useState<string | null>(null);
 
   function handleChange(name: keyof FormValues, value: string) {
     setValues((prev) => ({ ...prev, [name]: value }));
     setErrors((prev) => ({ ...prev, [name]: undefined }));
   }
 
-  function handleSubmit(event: React.FormEvent) {
+  async function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
+    setFormError(null);
     const result = signUpSchema.safeParse(values);
     if (!result.success) {
       const next: FormErrors = {};
@@ -96,6 +101,27 @@ function SignUpPage() {
       return;
     }
     setErrors({});
+    setLoading(true);
+    const { data, error } = await supabase.auth.signUp({
+      email: result.data.email,
+      password: result.data.password,
+      options: {
+        emailRedirectTo: `${window.location.origin}/`,
+        data: { full_name: result.data.fullName },
+      },
+    });
+    setLoading(false);
+
+    if (error) {
+      setFormError(error.message);
+      return;
+    }
+
+    if (data.session) {
+      navigate({ to: "/" });
+      return;
+    }
+
     setSubmitted(true);
   }
 
@@ -130,11 +156,12 @@ function SignUpPage() {
               <div className="rounded-2xl border border-primary/20 bg-secondary/50 p-6 text-center">
                 <CheckCircle2 className="mx-auto mb-3 h-8 w-8 text-primary" />
                 <p className="font-medium text-foreground">
-                  Details look good, {values.fullName.split(" ")[0]}!
+                  Almost there, {values.fullName.split(" ")[0]}!
                 </p>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  Your form passed validation. Account creation isn&apos;t
-                  connected to a backend yet.
+                  We sent a confirmation link to {values.email}. Click it to
+                  activate your account and you&apos;ll land back on the
+                  homepage.
                 </p>
                 <Button
                   variant="outline"
@@ -177,8 +204,18 @@ function SignUpPage() {
                   </div>
                 ))}
 
-                <Button type="submit" className="group w-full rounded-full">
-                  Create account
+                {formError ? (
+                  <p className="rounded-xl border border-destructive/30 bg-destructive/5 px-4 py-3 text-xs font-medium text-destructive">
+                    {formError}
+                  </p>
+                ) : null}
+
+                <Button
+                  type="submit"
+                  disabled={loading}
+                  className="group w-full rounded-full"
+                >
+                  {loading ? "Creating account…" : "Create account"}
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                 </Button>
               </form>

@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 
-// TODO: replace with your project URL once a project name or custom domain is set.
-const BASE_URL = "";
+
+const BASE_URL = "https://civil-aesthetic-studio.lovable.app";
 
 interface SitemapEntry {
   path: string;
@@ -11,7 +11,7 @@ interface SitemapEntry {
   priority?: string;
 }
 
-export const Route = createFileRoute("/sitemap/xml")({
+export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: async () => {

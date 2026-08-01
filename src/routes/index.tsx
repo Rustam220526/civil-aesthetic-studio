@@ -54,6 +54,39 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:url", content: "https://civil-aesthetic-studio.lovable.app/" },
+    ],
+    links: [{ rel: "canonical", href: "https://civil-aesthetic-studio.lovable.app/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Civil Engineering Graduate",
+          jobTitle: "Civil Engineer",
+          description:
+            "Civil Engineering graduate specializing in structural design, sustainable infrastructure, and project management.",
+          url: "https://civil-aesthetic-studio.lovable.app/",
+          knowsAbout: [
+            "Structural Analysis",
+            "BIM",
+            "Project Management",
+            "AutoCAD",
+            "Sustainable Design",
+            "Site Supervision",
+          ],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Civil Engineering Portfolio",
+          url: "https://civil-aesthetic-studio.lovable.app/",
+        }),
+      },
     ],
   }),
   component: Index,

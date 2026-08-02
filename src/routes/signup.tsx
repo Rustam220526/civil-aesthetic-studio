@@ -32,46 +32,31 @@ export const Route = createFileRoute("/signup")({
   component: SignUpPage,
 });
 
-const signUpSchema = z
-  .object({
-    fullName: z
-      .string()
-      .trim()
-      .min(2, { message: "Please enter your full name" })
-      .max(100, { message: "Name must be less than 100 characters" }),
-    email: z
-      .string()
-      .trim()
-      .email({ message: "Enter a valid email address" })
-      .max(255, { message: "Email must be less than 255 characters" }),
-    password: z
-      .string()
-      .min(8, { message: "Password must be at least 8 characters" })
-      .max(72, { message: "Password must be less than 72 characters" })
-      .regex(/[A-Za-z]/, { message: "Include at least one letter" })
-      .regex(/[0-9]/, { message: "Include at least one number" }),
-    confirmPassword: z.string(),
-  })
-  .refine((data) => data.password === data.confirmPassword, {
-    path: ["confirmPassword"],
-    message: "Passwords do not match",
-  });
+const signUpSchema = z.object({
+  email: z
+    .string()
+    .trim()
+    .email({ message: "Enter a valid email address" })
+    .max(255, { message: "Email must be less than 255 characters" }),
+  password: z
+    .string()
+    .min(8, { message: "Password must be at least 8 characters" })
+    .max(72, { message: "Password must be less than 72 characters" })
+    .regex(/[A-Za-z]/, { message: "Include at least one letter" })
+    .regex(/[0-9]/, { message: "Include at least one number" }),
+});
 
 type FormValues = z.infer<typeof signUpSchema>;
 type FormErrors = Partial<Record<keyof FormValues, string>>;
 
 const initialValues: FormValues = {
-  fullName: "",
   email: "",
   password: "",
-  confirmPassword: "",
 };
 
 const fields = [
-  { name: "fullName", label: "Full name", type: "text", placeholder: "Jane Doe", autoComplete: "name" },
-  { name: "email", label: "Email", type: "email", placeholder: "jane@example.com", autoComplete: "email" },
+  { name: "email", label: "Email ID", type: "email", placeholder: "jane@example.com", autoComplete: "email" },
   { name: "password", label: "Password", type: "password", placeholder: "At least 8 characters", autoComplete: "new-password" },
-  { name: "confirmPassword", label: "Confirm password", type: "password", placeholder: "Re-enter your password", autoComplete: "new-password" },
 ] as const;
 
 function SignUpPage() {
@@ -107,7 +92,6 @@ function SignUpPage() {
       password: result.data.password,
       options: {
         emailRedirectTo: `${window.location.origin}/`,
-        data: { full_name: result.data.fullName },
       },
     });
     setLoading(false);
@@ -156,7 +140,7 @@ function SignUpPage() {
               <div className="rounded-2xl border border-primary/20 bg-secondary/50 p-6 text-center">
                 <CheckCircle2 className="mx-auto mb-3 h-8 w-8 text-primary" />
                 <p className="font-medium text-foreground">
-                  Almost there, {values.fullName.split(" ")[0]}!
+                  Almost there!
                 </p>
                 <p className="mt-2 text-sm text-muted-foreground">
                   We sent a confirmation link to {values.email}. Click it to
@@ -204,6 +188,15 @@ function SignUpPage() {
                   </div>
                 ))}
 
+                <div className="flex justify-end">
+                  <Link
+                    to="/forgot-password"
+                    className="text-sm font-medium text-primary hover:underline"
+                  >
+                    Forgot password?
+                  </Link>
+                </div>
+
                 {formError ? (
                   <p className="rounded-xl border border-destructive/30 bg-destructive/5 px-4 py-3 text-xs font-medium text-destructive">
                     {formError}
@@ -224,7 +217,7 @@ function SignUpPage() {
 
           <p className="mt-6 text-center text-sm text-muted-foreground">
             Already have an account?{" "}
-            <Link to="/signup" className="font-medium text-primary hover:underline">
+            <Link to="/login" className="font-medium text-primary hover:underline">
               Log in
             </Link>
           </p>

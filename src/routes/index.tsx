@@ -252,8 +252,8 @@ function Header() {
     <header className="sticky top-0 z-[60] px-4 pt-4 sm:px-6 lg:px-8">
       <div
         className={`
-          container-tight relative mx-auto overflow-hidden rounded-2xl border border-border/60 bg-card/80 shadow-sm backdrop-blur-md transition-all duration-300
-          ${scrolled ? "shadow-lg shadow-navy-900/5" : ""}
+          container-tight relative mx-auto overflow-hidden rounded-2xl border border-green-200/60 bg-green-100/80 shadow-sm backdrop-blur-md transition-all duration-300
+          ${scrolled ? "shadow-lg shadow-green-900/5" : ""}
         `}
       >
         <nav className="flex items-center justify-between px-5 py-4">
@@ -333,7 +333,7 @@ function Header() {
             <SheetContent
               side="top"
               closeButton={false}
-              className="menu-offset rounded-t-2xl border-b border-border bg-card/95 backdrop-blur-xl"
+              className="menu-offset rounded-t-2xl border-b border-green-200 bg-green-100/95 backdrop-blur-xl"
             >
               <SheetHeader>
                 <SheetTitle className="sr-only">Navigation menu</SheetTitle>

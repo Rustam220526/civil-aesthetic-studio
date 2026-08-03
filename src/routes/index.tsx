@@ -333,7 +333,7 @@ function Header() {
             <SheetContent
               side="top"
               closeButton={false}
-              className="menu-offset rounded-t-2xl border-b border-border bg-card/95 backdrop-blur-xl"
+              className="menu-offset rounded-t-2xl border-b border-green-200 bg-green-100/95 backdrop-blur-xl"
             >
               <SheetHeader>
                 <SheetTitle className="sr-only">Navigation menu</SheetTitle>

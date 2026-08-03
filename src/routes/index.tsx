@@ -282,7 +282,7 @@ function Header() {
               </a>
             ))}
             <Link
-              to="/signup"
+              to="/login"
               className="group ml-3 inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-card px-4 py-2.5 text-sm font-semibold text-primary shadow-sm transition-all hover:border-primary/40 hover:bg-secondary hover:text-accent"
             >
               <LogIn className="h-3.5 w-3.5" />
@@ -352,7 +352,7 @@ function Header() {
                 ))}
                 <SheetClose asChild>
                   <Link
-                    to="/signup"
+                    to="/login"
                     className="mt-2 inline-flex items-center justify-center gap-2 rounded-xl border border-primary/20 bg-card px-4 py-3 text-sm font-semibold text-primary transition-all hover:border-primary/40 hover:bg-secondary hover:text-accent"
                   >
                     <LogIn className="h-4 w-4" />
